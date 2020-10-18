@@ -7,6 +7,7 @@ SetWorkingDir %A_ScriptDir%
 TrayTip, FunnyText, Funny text is disabled
 mode := "none"
 
+
 RemoveToolTip:
 ToolTip
 return 
@@ -15,8 +16,19 @@ return
 #IfWinActive, ahk_exe Discord.exe
 ~^j::
 global mode
-SendInput, {Backspace}
+nums := "0123456789"
 Input, num, L1 V T3
+
+; is input a valid number
+if InStr(nums, num)
+{
+	SendInput, {Backspace} ; removes it if it was
+}
+else 
+{
+	return
+}
+
 if num = 0
 {
 	mode := "off"
@@ -62,10 +74,9 @@ ToolTip, DiscordText is %mode%
 SetTimer, RemoveToolTip, -700
 return
 
-
 ; l33t speak
 #IfWinActive, ahk_exe Discord.exe
-#If, (mode = "l33t") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "l33t") and (WinActive("ahk_exe Discord.exe")!=0)
 *o::SendInput, 0 
 *i::SendInput, 1 
 *e::SendInput, 3 
@@ -130,7 +141,7 @@ randcase(char) {
 	SendInput %char%
 }
 
-#If, (mode = "randcase") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "randcase") and (WinActive("ahk_exe Discord.exe")!=0)
 *q::randcase("q")
 *e::randcase("e")
 *w::randcase("w")
@@ -177,7 +188,7 @@ demon(char, anger) {
 	SendInput, {Blind}%char%
 }
 
-#If, (mode = "demon") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "demon") and (WinActive("ahk_exe Discord.exe")!=0)
 q::demon("q", 3)
 w::demon("w", 3)
 e::demon("e", 3)
@@ -232,7 +243,7 @@ m::demon("m", 3)
 +m::demon("M", 6)
 
 
-#If, (mode = "gothic") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "gothic") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, 𝔮
 w::SendInput, 𝔴
 e::SendInput, 𝔢
@@ -287,7 +298,7 @@ m::SendInput, 𝔪
 +m::SendInput, 𝖒
 
 
-#If, (mode = "japanese") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "japanese") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, Ɋ
 w::SendInput, 山
 e::SendInput, 乇
@@ -316,7 +327,7 @@ n::SendInput, 几
 m::SendInput, 爪
 
 
-#If, (mode = "small") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "small") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, ᵠ
 w::SendInput, ʷ
 e::SendInput, ᵉ
@@ -371,7 +382,7 @@ m::SendInput, ᵐ
 +m::SendInput, ᴍ
 
 
-#If, (mode = "greek") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "greek") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, ϙ
 w::SendInput, ɯ
 e::SendInput, ҽ
@@ -425,7 +436,7 @@ m::SendInput, ɱ
 +n::SendInput, Ꮑ
 +m::SendInput, Ꮇ
 
-#If, (mode = "cursive") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "cursive") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, 𝓆
 w::SendInput, 𝓌
 e::SendInput, 𝑒
@@ -479,7 +490,7 @@ m::SendInput, 𝓂
 +n::SendInput, 𝓷
 +m::SendInput, 𝓶
 
-#If, (mode = "bubble") and (WinActive("ahk_exe Discord.exe"))
+#If, (mode = "bubble") and (WinActive("ahk_exe Discord.exe")!=0)
 q::SendInput, ⓠ
 w::SendInput, ⓦ
 e::SendInput, ⓔ
