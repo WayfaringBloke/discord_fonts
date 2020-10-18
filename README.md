@@ -1,9 +1,10 @@
 # Description
-  AutoHotkey script for typing in various unicode fonts in Discord .
+  AutoHotkey script for typing in various unicode fonts in Discord.
 # Setup
-  Download .exe and run, if it pops up in your system tray its working.
+  [Download .exe](https://github.com/WayfaringBloke/discord_fonts/releases/download/1.0/discord_fonts.exe) and run, if it pops up in your system tray its working.
+  If you want to set
 # Usage
-  In Discord press Ctrl+J and next 0-9 keys each entering different text modes.
+  In Discord press `Ctrl+J` and next `0-9*` keys each entering different text modes.
 # Text Modes
   0. off
   1. l33t speak
